@@ -1643,39 +1643,57 @@
         <div class="t123">
           <div class="t-container_100">
             <div class="t-width t-width_100">
-              <!-- nominify begin -->
-              <audio autoplay loop id="bg-sound">
-  <source
-    src="https://dl.dropbox.com/scl/fi/djtftol134yjfdcjxb9l7/_-hitmus.kz.mp3?rlkey=7jimynrhbrrhzkrs1nzr49bga&amp;st=oalga98x&amp;dl=0"
-    type="audio/mpeg"
-  />
-</audio>
+  <!-- nominify begin -->
+  <audio id="bg-sound" loop>
+    <source
+      src="https://dl.dropbox.com/scl/fi/djtftol134yjfdcjxb9l7/_-hitmus.kz.mp3?rlkey=7jimynrhbrrhzkrs1nzr49bga&amp;st=oalga98x&amp;dl=0"
+      type="audio/mpeg"
+    />
+  </audio>
 
-<script>
-  $(document).ready(function () {
-    let myAudio = document.getElementById("bg-sound");
-    let fadeTime = 300; // Время смены иконок
-    myAudio.volume = 0.4; // Громкость
+  <script>
+    $(document).ready(function () {
+      let myAudio = document.getElementById("bg-sound");
+      let fadeTime = 300;
+      myAudio.volume = 0.4;
 
-    // 🚀 Автозапуск при загрузке страницы
-    myAudio.play().catch(() => {
-      console.log("Браузер может заблокировать автозапуск со звуком");
+      // Запускаем музыку при первом клике или скролле
+      function startMusic() {
+        myAudio.play().catch(() => {});
+        $(document).off("click scroll", startMusic); // удаляем слушатель после запуска
+      }
+
+      $(document).on("click scroll", startMusic);
+
+      // Кнопки управления
+      $(".stopbgmusic").hide();
+      $(".playbgmusic").click(function () {
+        myAudio.play();
+        $(this).fadeOut(fadeTime);
+        $(".stopbgmusic").fadeIn(fadeTime);
+      });
+      $(".stopbgmusic").click(function (e) {
+        e.preventDefault();
+        myAudio.pause();
+        $(this).fadeOut(fadeTime);
+        $(".playbgmusic").fadeIn(fadeTime);
+      });
+      $("#bg-sound").on("ended", function () {
+        $(".stopbgmusic").fadeOut(fadeTime);
+        $(".playbgmusic").fadeIn(fadeTime);
+      });
     });
+  </script>
 
-    // кнопки можно удалить, если не нужны
-    $(".stopbgmusic").hide();
-    $(".playbgmusic").hide();
-  });
-</script>
+  <style>
+    div[class*="bgmusic"] {
+      cursor: pointer;
+      z-index: 99 !important;
+    }
+  </style>
+  <!-- nominify end -->
+</div>
 
-              <style>
-                div[class*="bgmusic"] {
-                  cursor: pointer;
-                  z-index: 99 !important;
-                }
-              </style>
-              <!-- nominify end -->
-            </div>
           </div>
         </div>
       </div>
@@ -5264,10 +5282,7 @@
 
     function autoScroll() {
       window.scrollBy(0, scrollSpeed); // прокручиваем вниз
-      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-        // если дошли до конца — возвращаемся в начало
-        window.scrollTo(0, 0);
-      }
+      // 🔹 убрал возврат в начало
     }
 
     // запускаем автопрокрутку каждые 20 мс
