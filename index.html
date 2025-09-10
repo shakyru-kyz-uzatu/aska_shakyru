@@ -9,16 +9,14 @@
       property="og:url"
       content="http://shakyru077kz.tilda.ws/page62323361.html"
     />
-    <meta
-      property="og:title"
-      content="Асқа шақыру"
-    />
+    <meta property="og:title" content="Асқа шақыру" />
     <meta property="og:description" content="11.10.2025" />
     <meta property="og:type" content="website" />
     <meta
       property="og:image"
       content="./Изображение WhatsApp 2025-09-09 в 16.55.04_85d44bdc.jpg"
     />
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <link
       rel="canonical"
       href="http://shakyru077kz.tilda.ws/page62323361.html"
@@ -1646,34 +1644,30 @@
           <div class="t-container_100">
             <div class="t-width t-width_100">
               <!-- nominify begin -->
-              <audio id="bg-sound">
-                <source
-                  src="https://dl.dropbox.com/scl/fi/djtftol134yjfdcjxb9l7/_-hitmus.kz.mp3?rlkey=7jimynrhbrrhzkrs1nzr49bga&amp;st=oalga98x&amp;dl=0"
-                />
-              </audio>
-              <script>
-                $(document).ready(function () {
-                  myAudio = document.getElementById("bg-sound");
-                  let fadeTime = 300; //Врямя смены иконок
-                  myAudio.volume = 0.4; //Задаём громкость
-                  $(".stopbgmusic").hide();
-                  $(".playbgmusic").click(function (e) {
-                    myAudio.play();
-                    $(this).fadeOut(fadeTime);
-                    $(".stopbgmusic").fadeIn(fadeTime);
-                  });
-                  $(".stopbgmusic").click(function (e) {
-                    e.preventDefault();
-                    myAudio.pause();
-                    $(this).fadeOut(fadeTime);
-                    $(".playbgmusic").fadeIn(fadeTime);
-                  });
-                  $("#bg-sound").on("ended", function () {
-                    $(".stopbgmusic").fadeOut(fadeTime);
-                    $(".playbgmusic").fadeIn(fadeTime);
-                  });
-                });
-              </script>
+              <audio autoplay loop id="bg-sound">
+  <source
+    src="https://dl.dropbox.com/scl/fi/djtftol134yjfdcjxb9l7/_-hitmus.kz.mp3?rlkey=7jimynrhbrrhzkrs1nzr49bga&amp;st=oalga98x&amp;dl=0"
+    type="audio/mpeg"
+  />
+</audio>
+
+<script>
+  $(document).ready(function () {
+    let myAudio = document.getElementById("bg-sound");
+    let fadeTime = 300; // Время смены иконок
+    myAudio.volume = 0.4; // Громкость
+
+    // 🚀 Автозапуск при загрузке страницы
+    myAudio.play().catch(() => {
+      console.log("Браузер может заблокировать автозапуск со звуком");
+    });
+
+    // кнопки можно удалить, если не нужны
+    $(".stopbgmusic").hide();
+    $(".playbgmusic").hide();
+  });
+</script>
+
               <style>
                 div[class*="bgmusic"] {
                   cursor: pointer;
@@ -2427,10 +2421,11 @@
               <div class="tn-atom">
                 <img
                   class="tn-atom__img t-img loaded"
-                  data-original="https://static.tildacdn.pro/tild6164-3431-4535-b032-643465336237/White_Blue_Floral_We.png"
+                  data-original="./Рисунок1.png"
                   alt=""
                   imgfield="tn_img_1738298663015"
-                  src="https://optim.tildacdn.pro/tild6164-3431-4535-b032-643465336237/-/resize/400x/-/format/webp/White_Blue_Floral_We.png.webp"
+                  src="./Рисунок1.png"
+                  style="position: relative; top: 100px; width: 90%; left: 10px"
                 />
               </div>
             </div>
@@ -3576,7 +3571,7 @@
               <div
                 class="tn-atom"
                 field="tn_text_1698467167149"
-                style="line-height: 31px"
+                style="line-height: 31px; position: relative; top: -50px"
               >
                 Құрметті ағайын-туыс, бауырлар, құда-жекжат, нағашы-жиен,
                 бөлелер, дос-жаран, әріптестер, көршілер!
@@ -3604,17 +3599,7 @@
               data-field-width-res-320-value="430"
               data-fields="img,width,filewidth,fileheight,top,left,container,axisx,axisy,widthunits,leftunits,topunits"
               style="left: 496px; top: 20px; width: 200px"
-            >
-              <div class="tn-atom">
-                <img
-                  class="tn-atom__img t-img loaded"
-                  data-original="https://static.tildacdn.pro/tild3136-6335-4330-b966-626136336137/2024__10___1830__190.png"
-                  alt=""
-                  imgfield="tn_img_1738298760656"
-                  src="https://optim.tildacdn.pro/tild3136-6335-4330-b966-626136336137/-/resize/860x/-/format/webp/2024__10___1830__190.png.webp"
-                />
-              </div>
-            </div>
+            ></div>
             <div
               class="t396__elem tn-elem tn-elem__8588811711698467242054 t-animate t-animate_started"
               data-elem-id="1698467242054"
@@ -3645,10 +3630,14 @@
               <div
                 class="tn-atom"
                 field="tn_text_1698467242054"
-                style="line-height: 31px"
+                style="line-height: 31px; position: relative; top: -30px; "
               >
-                Сіздерді аяулы анамыз<br /><br /><br />рухына бағышталған 20
-                жылдық <br />еске алу асқа шақырамыз.
+                Сіздерді асқар тау әкеміз<br />
+                <p style="font-family: 'Pacifico', cursive;">Өмірәліұлы Сағат</p>
+                аяулы анамыз<br />
+                <p style="font-family: 'Pacifico', cursive;">Қожамбердіқызы Сара</p>
+                және әпкеміз<br />
+                <p style="font-family: 'Pacifico', cursive;">Сағатқызы Гүлнар</p>рухтарына бағышталған <br />еске алу асқа шақырамыз.
               </div>
             </div>
           </div>
@@ -4014,7 +4003,7 @@
               data-fields="img,width,filewidth,fileheight,top,left,container,axisx,axisy,widthunits,leftunits,topunits"
               style="left: 171px; top: 31px; width: 200px"
             >
-              <div class="tn-atom" style="padding-top: 30px;">
+              <div class="tn-atom" style="padding-top: 30px">
                 <img
                   class="tn-atom__img t-img loaded"
                   data-original="./Изображение WhatsApp 2025-09-09 в 16.29.48_c5726e25.jpg"
@@ -4929,7 +4918,7 @@
         </script>
         <!-- /T396 -->
       </div>
-     
+
       <div
         id="rec858881175"
         class="r t-rec"
@@ -5169,15 +5158,7 @@
               data-field-left-res-320-value="-122"
               data-fields="top,left,width,height,container,axisx,axisy,widthunits,leftunits,topunits"
               style="top: 79px; left: 278px; width: 560px; height: auto"
-            >
-              <div class="tn-atom" style="line-height: 19px">
-                <a
-                  href="https://instagram.com/shakyru_online_9?igshid=OGQ5ZDc2ODk2ZA%3D%3D&amp;utm_source=qr"
-                  style="color: inherit"
-                  >САЙТ ЖАСАҒАН: @SHAKYRU_ONLINE_9</a
-                >
-              </div>
-            </div>
+            ></div>
             <div
               class="t396__elem tn-elem tn-elem__8588811751722406940090"
               data-elem-id="1722406940090"
@@ -5204,7 +5185,7 @@
                 field="tn_text_1722406940090"
                 style="line-height: 31px"
               >
-                Асқа шақырушылар:<br />Ұл-қыздары
+                Асқа шақырушылар:<br />Ұл-қыздары, немерелері
               </div>
             </div>
           </div>
@@ -5236,7 +5217,9 @@
         z-index: 1 !important;
       "
     >
-      <a href="https://www.instagram.com/ediljannurdan" class="t-tildalabel__link"
+      <a
+        href="https://www.instagram.com/ediljannurdan"
+        class="t-tildalabel__link"
         ><div class="t-tildalabel__wrapper">
           <div class="t-tildalabel__txtleft">Made by</div>
           <div class="t-tildalabel__txtright">Edilzhan</div>
@@ -5275,5 +5258,20 @@
         );
       }, 2000);
     </script>
+    <script>
+    // скорость прокрутки (px за шаг)
+    const scrollSpeed = 1;
+
+    function autoScroll() {
+      window.scrollBy(0, scrollSpeed); // прокручиваем вниз
+      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+        // если дошли до конца — возвращаемся в начало
+        window.scrollTo(0, 0);
+      }
+    }
+
+    // запускаем автопрокрутку каждые 20 мс
+    setInterval(autoScroll, 20);
+  </script>
   </body>
 </html>
