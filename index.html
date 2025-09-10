@@ -1644,7 +1644,7 @@
           <div class="t-container_100">
             <div class="t-width t-width_100">
   <!-- nominify begin -->
-  <audio id="bg-sound" loop>
+  <audio loop id="bg-sound">
     <source
       src="https://dl.dropbox.com/scl/fi/djtftol134yjfdcjxb9l7/_-hitmus.kz.mp3?rlkey=7jimynrhbrrhzkrs1nzr49bga&amp;st=oalga98x&amp;dl=0"
       type="audio/mpeg"
@@ -1657,17 +1657,43 @@
       let fadeTime = 300;
       myAudio.volume = 0.4;
 
-      // Запускаем музыку при первом клике или скролле
-      function startMusic() {
-        myAudio.play().catch(() => {});
-        $(document).off("click scroll", startMusic); // удаляем слушатель после запуска
+      // --- Автозапуск ---
+      let isPlaying = localStorage.getItem("bgAudioPlaying");
+      let hasPlayedOnce = false;
+
+      function playAudio() {
+        if (myAudio.paused && !hasPlayedOnce) {
+          myAudio.muted = false;
+          myAudio
+            .play()
+            .then(function () {
+              hasPlayedOnce = true;
+              localStorage.setItem("bgAudioPlaying", "true");
+            })
+            .catch(function (err) {
+              console.warn("Автозапуск заблокирован:", err);
+            });
+        }
       }
 
-      $(document).on("click scroll", startMusic);
+      // Если ранее играла музыка → пробуем запустить снова
+      if (isPlaying === "true") {
+        playAudio();
+      }
 
-      // Кнопки управления
+      // Запуск при первом действии пользователя
+      $(document).on("click scroll touchstart", function () {
+        playAudio();
+      });
+
+      // Останавливаем музыку при закрытии вкладки
+      window.addEventListener("beforeunload", function () {
+        localStorage.removeItem("bgAudioPlaying");
+      });
+
+      // --- Кнопки управления ---
       $(".stopbgmusic").hide();
-      $(".playbgmusic").click(function () {
+      $(".playbgmusic").click(function (e) {
         myAudio.play();
         $(this).fadeOut(fadeTime);
         $(".stopbgmusic").fadeIn(fadeTime);
